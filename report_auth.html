@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизація для звіту</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Авторизація для доступу до звіту - навчальний ресурс про Інтернет протоколи.">
+    <meta name="keywords" content="Інтернет, протоколи, авторизація, звіт">
+    <meta name="author" content="Мережі Інтернет та Протоколи">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="networks.html">Мережі та Протоколи</a></li>
+                <li><a href="login.html">Авторизація</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-form">
+            <h2>Авторизація для звіту</h2>
+            <form id="reportAuthForm">
+                <div class="form-group">
+                    <label for="username">Логін:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Увійти</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Мережі Інтернет та Протоколи</p>
+    </footer>
+
+    <script>
+        document.getElementById('reportAuthForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Прості перевірки для демонстрації
+            if (username === 'admin' && password === 'admin123') {
+                localStorage.setItem('isReportAuthorized', 'true');
+                window.location.href = 'report.html';
+            } else if (username === 'Test' && password === 'test') {
+                localStorage.setItem('isReportAuthorized', 'true');
+                window.location.href = 'report.html';
+            } else {
+                alert('Невірний логін або пароль');
+            }
+        });
+    </script>
+</body>
+</html> 
